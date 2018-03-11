@@ -23,14 +23,14 @@ namespace KinectCoordinateMapping
             ShoulderPointGoTo = new Point(0, 0);
 
             StartHandsUp start = new StartHandsUp();
-            GoToRight goToRight = new GoToRight();
-            GoToLeft goToLeft = new GoToLeft();
+            MoveToLeft moveToLeft = new MoveToLeft();
+            MoveToRight moveToRight = new MoveToRight();
 
             _segments = new IGestureSegment[]
             {
                 start,
-                goToRight,
-                goToLeft,
+                moveToRight,
+                moveToLeft
             };
 
             Reset();

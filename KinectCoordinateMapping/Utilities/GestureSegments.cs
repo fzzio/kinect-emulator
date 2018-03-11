@@ -116,7 +116,7 @@ namespace KinectCoordinateMapping
             var centroHombroX = skeleton.Joints[JointType.ShoulderCenter].Position.X;
             var diferencia = centroHombroX - Gesture.ShoulderPointIni.X;
 
-            if (diferencia < -Constants.DIF_SHOULDER_X)
+            if (centroHombroX < Gesture.ShoulderPointIni.X && diferencia < -Constants.DIF_SHOULDER_X)
             {
                 return GesturePartResult.MoveToLeft;
             }
@@ -144,7 +144,7 @@ namespace KinectCoordinateMapping
             var centroHombroX = skeleton.Joints[JointType.ShoulderCenter].Position.X;
             var diferencia = centroHombroX - Gesture.ShoulderPointIni.X;
 
-            if (diferencia > Constants.DIF_SHOULDER_X)
+            if (centroHombroX > Gesture.ShoulderPointIni.X && diferencia > Constants.DIF_SHOULDER_X)
             {
                 return GesturePartResult.MoveToRight;
             }

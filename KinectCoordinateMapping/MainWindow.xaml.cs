@@ -184,20 +184,21 @@ namespace KinectCoordinateMapping
             {
                 case GesturePartResult.StartHandsUp:
                     txtAccion.Text = "Empezar";
-                    SendKeys.SendWait("{ENTER}");
+                    SendKeys.SendWait(" ");
                     SendKeys.Flush();
                     break;
-                case GesturePartResult.GoToRight:
+                case GesturePartResult.MoveToRight:
                     txtAccion.Text = "Mover Derecha";
-                    SendKeys.SendWait("^{RIGHT 18}");
-                    SendKeys.Flush();
+                    SendKeys.SendWait("{RIGHT 5}");
+                    //SendKeys.Flush();
                     break;
-                case GesturePartResult.GoToLeft:
+                case GesturePartResult.MoveToLeft:
                     txtAccion.Text = "Mover Izquierda";
-                    SendKeys.SendWait("^{LEFT 18}");
-                    SendKeys.Flush();
+                    SendKeys.SendWait("{LEFT 5}");
+                    //SendKeys.Flush();
                     break;
                 default:
+                    txtAccion.Text = "--";
                     break;
             }
         }
