@@ -177,6 +177,7 @@ namespace KinectCoordinateMapping
             Console.WriteLine("Empezar reconocimiento");
         }
 
+
         public void SetAccionReconocida(GesturePartResult gesto)
         {
             switch (gesto)
