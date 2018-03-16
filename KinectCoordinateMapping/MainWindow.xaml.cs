@@ -158,7 +158,7 @@ namespace KinectCoordinateMapping
 
                     if (skeletons.Length > 0)
                     {
-                        var user = skeletons.Where(u => u.TrackingState == SkeletonTrackingState.Tracked).FirstOrDefault();
+                        var user = skeletons.Where(x => x.TrackingState != SkeletonTrackingState.NotTracked).OrderBy(x => x.Position.Z).FirstOrDefault();
 
                         if (user != null)
                         {
