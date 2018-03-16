@@ -1,19 +1,14 @@
 ﻿using Microsoft.Kinect;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using WindowsInput.Native;
+using WindowsInput;
 
 
 namespace KinectCoordinateMapping
@@ -29,6 +24,9 @@ namespace KinectCoordinateMapping
         KinectSensor _sensor;
         Skeleton[] _bodies = new Skeleton[6];
         GesturePartResult Gesto = GesturePartResult.None;
+
+        InputSimulator Tecl = new InputSimulator();
+        VirtualKeyCode TclPresionada = 0;
 
         public MainWindow()
         {
@@ -180,27 +178,33 @@ namespace KinectCoordinateMapping
 
         public void SetAccionReconocida(GesturePartResult gesto)
         {
+            if (TclPresionada != 0) {
+                Tecl.Keyboard.KeyUp(TclPresionada);
+            }
+
             switch (gesto)
             {
                 case GesturePartResult.StartHandsUp:
                     txtAccion.Text = "Empezar";
-                    SendKeys.SendWait(" ");
-                    SendKeys.Flush();
+                    TclPresionada = VirtualKeyCode.SPACE;
+                    Tecl.Keyboard.KeyPress(TclPresionada);
                     break;
                 case GesturePartResult.MoveToRight:
                     txtAccion.Text = "Mover Derecha";
-                    SendKeys.SendWait("{RIGHT 5}");
-                    //SendKeys.Flush();
+                    TclPresionada = VirtualKeyCode.RIGHT;
+                    Tecl.Keyboard.KeyDown(TclPresionada);
                     break;
                 case GesturePartResult.MoveToLeft:
                     txtAccion.Text = "Mover Izquierda";
-                    SendKeys.SendWait("{LEFT 5}");
-                    //SendKeys.Flush();
+                    TclPresionada = VirtualKeyCode.LEFT;
+                    Tecl.Keyboard.KeyDown(TclPresionada);
                     break;
                 default:
                     txtAccion.Text = "--";
-                    break;
+                    Tecl.Keyboard.KeyUp(TclPresionada);
+                    break;                
             }
+
         }
 
         private void btnIniciarValores_Click(object sender, RoutedEventArgs e)
