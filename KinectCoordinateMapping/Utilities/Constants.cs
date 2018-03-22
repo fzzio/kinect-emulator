@@ -34,6 +34,8 @@ namespace KinectCoordinateMapping
 
         public static readonly double DIF_SHOULDER_X = 0.05;
 
+        public static readonly int N_VECES_TECLADO = 25;
+
         #endregion
     }
 }
