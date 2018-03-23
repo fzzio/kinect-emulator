@@ -241,7 +241,7 @@ namespace KinectCoordinateMapping
         /// Setear eventos de teclado -> presionando n veces las teclas
         /// </summary>
         /// <param name="gesto">The gesto.</param>
-        public void SetAccionReconocida(GesturePartResult gesto)
+       /* public void SetAccionReconocida(GesturePartResult gesto)
         {
             switch (gesto)
             {
@@ -251,24 +251,24 @@ namespace KinectCoordinateMapping
                     break;
                 case GesturePartResult.MoveToRight:
                     txtAccion.Text = "Mover Derecha";
-                    PresionarVariasVeces(VirtualKeyCode.RIGHT, NPresionTecla);
+                    PresionarVariasVeces(VirtualKeyCode.RIGHT, Int32.Parse( txtVecesTeclado.Text));
                     break;
                 case GesturePartResult.MoveToLeft:
                     txtAccion.Text = "Mover Izquierda";
-                    PresionarVariasVeces(VirtualKeyCode.LEFT, NPresionTecla);
+                    PresionarVariasVeces(VirtualKeyCode.LEFT, Int32.Parse( txtVecesTeclado.Text) );
                     break;
                 default:
                     txtAccion.Text = "--";
                     break;
             }
 
-        }
+        }*/
 
         // <summary>
         /// Setear eventos de teclado -> mantener presionado teclas hasta cambiar de posicion
         /// </summary>
         /// <param name="gesto">The gesto.</param>
-        /*public void SetAccionReconocida(GesturePartResult gesto)
+        public void SetAccionReconocida(GesturePartResult gesto)
         {
             if (TclPresionada != 0)
             {
@@ -298,7 +298,7 @@ namespace KinectCoordinateMapping
                     break;
             }
 
-        }*/
+        }
 
         /// <summary>
         /// Obteners the valor numero veces teclado.

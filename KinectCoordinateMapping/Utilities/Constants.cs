@@ -32,7 +32,7 @@ namespace KinectCoordinateMapping
 
         public static readonly int WINDOW_SIZE = 50;
 
-        public static readonly double DIF_SHOULDER_X = 0.05;
+        public static readonly double DIF_SHOULDER_X = 0.10;
 
         public static readonly int N_VECES_TECLADO = 25;
 
